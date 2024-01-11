@@ -23,7 +23,7 @@
 
 SHELL = /bin/bash
 
-ARCH=sm_60
+ARCH=sm_89
 # CUDA toolkit installation path
 CUDA_DIR = /usr/local/cuda/
 

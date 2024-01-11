@@ -80,9 +80,9 @@ __global__ void kDotProduct_r(float* a, float* b, float* target, const uint numE
 __global__ void kSetupCurand(curandState *state, unsigned long long seed);
 
 template<typename T> 
-__device__ T shfl_down(T a, int b, int c=WARP_SIZE) {
+__device__ T shfl_down_sync(T a, int b, int c=WARP_SIZE) {
 #if __CUDA_ARCH__ >= 300
-    return __shfl_down(a, b, c);
+    return __shfl_down_sync(a, b, c);
 #else
     return 0;
 #endif
@@ -438,7 +438,7 @@ __global__ void kAggRows_wholerow_nosync(const float* mat, float* matSum, const 
     #pragma unroll
     for (uint i = 0; i < LOG_WARP_SIZE; i++) {
         const uint d = 1 << i;
-        myAccum[0] = agg(myAccum[0], shfl_down(myAccum[0], d));
+        myAccum[0] = agg(myAccum[0], shfl_down_sync(myAccum[0], d));
     }
     __syncthreads();
     // The warps write their results
@@ -448,7 +448,7 @@ __global__ void kAggRows_wholerow_nosync(const float* mat, float* matSum, const 
         #pragma unroll
         for (uint i = 0; i < AWR_LOG_NUM_WARPS; i++) {
             const uint d = 1 << i;
-            myFinalAccum[0] = agg(myFinalAccum[0], shfl_down(myFinalAccum[0], d));
+            myFinalAccum[0] = agg(myFinalAccum[0], shfl_down_sync(myFinalAccum[0], d));
         }
         if (tidx == 0) {
             matSum[0] = bop(matSum[0], myFinalAccum[0]);
