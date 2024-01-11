@@ -32,7 +32,7 @@ export CUDA_INSTALL_PATH=/usr/local/cuda
 export PYTHON_INCLUDE_PATH=/usr/include/python2.7
 
 # Numpy include directory. This should contain the file arrayobject.h, among others.
-export NUMPY_INCLUDE_PATH=/usr/lib/python2.7/dist-packages/numpy/core/include/numpy/
+export NUMPY_INCLUDE_PATH=/usr/local/lib/python2.7/dist-packages/numpy/core/include/numpy/
 
 # ATLAS library directory. This should contain the file libcblas.so, among others.
 export ATLAS_LIB_PATH=/usr/lib/atlas-base/
@@ -42,9 +42,12 @@ export LD_LIBRARY_PATH=$CUDA_INSTALL_PATH/lib64:$LD_LIBRARY_PATH
 export CUDA_SDK_PATH=$CUDA_INSTALL_PATH/samples
 export PATH=$PATH:$CUDA_INSTALL_PATH/bin
 
+echo building util
 cd util && make numpy=1 -j $* && cd ..
+echo building nvmatrix
 cd nvmatrix && make -j $* && cd ..
+echo building cudaconv3
 cd cudaconv3 && make -j $* && cd ..
+echo building cudaconvnet
 cd cudaconvnet && make -j $* && cd ..
 #cd make-data/pyext && make -j $* && cd ../..
-

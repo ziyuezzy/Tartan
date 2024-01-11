@@ -500,7 +500,7 @@ int NVMatrix::getDataDeviceID() const {
     }
     struct cudaPointerAttributes atts;
     checkCudaErrors(cudaPointerGetAttributes(&atts, getDevData()));
-    return atts.memoryType == cudaMemoryTypeDevice ? atts.device : DEVICE_HOST;
+    return atts.type == cudaMemoryTypeDevice ? atts.device : DEVICE_HOST;
 }
 
 

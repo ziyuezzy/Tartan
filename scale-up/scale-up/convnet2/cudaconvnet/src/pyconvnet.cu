@@ -18,7 +18,7 @@
 #include <arrayobject.h>
 #include <assert.h>
 #include <helper_cuda.h>
-#include <cublas.h>
+#include <cublas_v2.h>
 #include <time.h>
 #include <vector>
 #include <execinfo.h>
