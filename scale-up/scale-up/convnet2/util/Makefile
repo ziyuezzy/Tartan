@@ -13,7 +13,7 @@
 # limitations under the License.
 
 LINK_LIBS := -L$(ATLAS_LIB_PATH) -latlas -lcblas
-INCLUDES := -I./include
+INCLUDES := -I./include $(TARTAN_COMMON)
 COMMONFLAGS :=
 CC_ARGS := 
 CC=g++

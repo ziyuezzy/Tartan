@@ -69,7 +69,7 @@ OBJDIR := ./obj/$(DBG)
 
 ########## USER STUFF ###########
 LDFLAGS   		+= -L../util -lutilpy -lcublas
-INCLUDES      	:= -I$(CUDA_INC_PATH) -I $(CUDA_SDK_PATH)/Common -I./include
+INCLUDES      	:= -I$(CUDA_INC_PATH) -I $(CUDA_SDK_PATH)/Common -I./include $(TARTAN_COMMON)
 
 CUFILES	:= $(shell find . -name "*.cu")
 CU_DEPS	:= $(shell find . -name "*.cuh")
