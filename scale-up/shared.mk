@@ -31,7 +31,7 @@ CUDA_DIR = /usr/local/cuda/
 CUDA_DRIVER_DIR = /usr/lib/nvidia-390/ 
 
 # CUDA SDK installation path
-SDK_DIR = $(HOME)/samples/
+SDK_DIR = $(CUDA_DIR)/samples/
 # SDK_DIR = $(HOME)/NVIDIA_GPU_Computing_SDK/
 
 # CUDA toolkit libraries

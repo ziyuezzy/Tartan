@@ -333,7 +333,7 @@ unsigned int SHFL_UP_SYNC(unsigned int word, int src_offset, int first_lane, uns
 }
 
 /**
- * Warp synchronous shfl_down
+ * Warp synchronous __shfl_down_sync
  */
 __device__ __forceinline__ 
 unsigned int SHFL_DOWN_SYNC(unsigned int word, int src_offset, int last_lane, unsigned int member_mask)

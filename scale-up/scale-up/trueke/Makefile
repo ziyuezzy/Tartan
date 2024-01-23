@@ -25,7 +25,7 @@ CUDA_INSTALL_PATH = $(CUDA_ROOT)
 CUDA_SDK_PATH = $(CUDA_ROOT)/samples
 
 # compiler, include and lib parameters
-INCD = -I"$(CUDA_SDK_PATH)/common/inc" -I"$(CUDA_INSTALL_PATH)/include" -I"./" -I"/usr/include/nvidia/gdk/"
+INCD = -I"$(CUDA_SDK_PATH)/Common" -I"$(CUDA_INSTALL_PATH)/include" -I"./" -I"/usr/include/nvidia/gdk/"
 LIBS = -lcuda -L"$(CUDA_INSTALL_PATH)/lib64" -lcudart -L"$(CUDA_SDK_PATH)/common/lib"  -lpthread -lnvidia-ml -lgomp -L$(CUDA_DRIVER_DIR)
 
 # compiler flags
