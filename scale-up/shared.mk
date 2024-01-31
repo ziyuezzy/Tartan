@@ -23,12 +23,14 @@
 
 SHELL = /bin/bash
 
-ARCH=sm_89
+# ARCH=sm_61 # this is for GTX1080ti GPU
+# ARCH=sm_89 # this is for RTX4090 GPU
+ARCH=sm_70 # this is for V100 GPU
 # CUDA toolkit installation path
 CUDA_DIR = /usr/local/cuda/
 
 # CUDA driver path #TODO: change this according to server
-CUDA_DRIVER_DIR = /usr/lib/nvidia-390/ 
+CUDA_DRIVER_DIR = /usr/lib/nvidia/
 
 # CUDA SDK installation path
 SDK_DIR = $(CUDA_DIR)/samples/
