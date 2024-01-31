@@ -51,7 +51,7 @@ MPICXX = mpic++
 NVCC = $(CUDA_DIR)/bin/nvcc
 NVCC_FLAGS = -arch=$(ARCH)  -O3 
 # Link
-NVCC_INCLUDE = -I. -I$(CUDA_DIR)/include -I$(SDK_DIR)/C/common/inc -I../../common/inc/ -I$(SDK_DIR)/shared/inc -I$(MPI_DIR)/include -I$(SDK_DIR)/Common
+NVCC_INCLUDE = -I. -I$(CUDA_DIR)/include -I$(SDK_DIR)/C/common/inc -I../../common/inc/ -I$(SDK_DIR)/shared/inc -I$(MPI_DIR)/include -I$(SDK_DIR)/Common -I/usr/include
 NVCC_LIB =-lcuda -lmpi_ibm # -lmpich -lmpl # -lnccl
 NVCC_LIB_PATH = -L. -L$(SDK_DIR)/C/lib -L$(LIB_DIR)/ -L$(SDK_DIR)/shared/lib -L$(MPI_DIR)/lib -L/usr/lib/ -L/usr/lib64  -L/ccs/home/angli/tartan/Collective/nccl_2.0/lib -L../../common/libconfig-1.4.9/.libs/
 
